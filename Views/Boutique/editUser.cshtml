@@ -1,0 +1,94 @@
+﻿
+
+
+
+
+
+<form action="/Boutique/editUserSave" method="post">
+
+    <span style="color:magenta" class="fw-bolder">@ViewBag.message</span>
+
+    <div class="card-body">
+        <div class="card card-border card-primary">
+            <div class="card-header border-primary bg-transparent pb-0">
+                <h3 class="card-title text-primary">Update User Profile</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" class="form-control" value="@ViewBag.user.Name">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" name="Phone" id="Phone" class="form-control" value="@ViewBag.user.Phone">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" value="@ViewBag.user.Email">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="addressLine">AddressLine</label>
+                            <input type="text" name="addressLine" id="addressLine" class="form-control" value="@ViewBag.user.AddressLine">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" name="city" id="city" class="form-control" value="@ViewBag.user.City">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" name="state" id="state" class="form-control" value="@ViewBag.user.State">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="zip">Zip</label>
+                            <input type="text" name="zip" id="zip" class="form-control" value="@ViewBag.user.Zip">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" name="password" id="password" class="form-control" value="@ViewBag.user.Password">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <input type="hidden" name="Id" id="Id" class="form-control" value="@ViewBag.user.Id">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (ViewBag.errorMessage != null)
+    {
+        foreach (var errorMessage in @ViewBag.errorMessage)
+        {
+            <p style="color:magenta">
+                @errorMessage;
+            </p>
+        }
+    }
+
+    <div class="form-group row">
+        <div class="col-lg-5">
+            <button type="reset" class="btn btn-primary btn-rounded waves-effect waves-light">Clear</button>
+            <button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light">Update User</button>
+        </div>
+    </div>
+
+</form>

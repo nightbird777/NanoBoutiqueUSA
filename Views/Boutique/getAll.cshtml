@@ -1,0 +1,117 @@
+﻿<!-- Start Content-->
+<div class="container-fluid">
+
+    <!-- start page title -->
+    <div class="row">
+        <div class="col-12">
+            <div class="page-title-box">
+                <h1 class="page-title">NanoBoutique Users</h1>
+                <div class="page-title-right">
+                    <div class="breadcrumb p-0 m-0">
+                        <div class="button-list">
+                            <button type="button" onclick="location.href = '/Boutique/CreateUser'" class="btn btn-primary btn-rounded waves-effect waves-light">Create User</button>
+                        </div>
+                        <div class="button-list">
+                            <button onclick="tableToCSV()" class="btn btn-primary btn-rounded waves-effect waves-light">CSV-File from Browser</button>
+                        </div>
+                        <div class="button-list">
+                            <button type="button" onclick="location.href = '/Boutique/ExportAsCSV'" class="btn btn-primary btn-rounded waves-effect waves-light">CSV-File from DataBase</button>
+                        </div>
+                    </div>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+    <!-- end page title -->
+
+    <div class="row">
+        <div class="col-lg-12">
+            <div class="card card-border card-primary">
+                <div class="card-header border-primary bg-transparent pb-0">
+                    <h3 class="card-title text-primary">User Details</h3>
+                </div>
+                <div class="card-body">
+                    <div class="row table-rep-plugin">
+                        <div class="col-md-12 col-sm-12 col-12 table-responsive mb-0" data-pattern="priority-columns">
+                            <table id="datatable" class="table table-striped table-hover table-small-font table-bordered nowrap" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
+                                <thead>
+                                    <tr class="text-black text-center fw-bold bg-warning">
+                                        <td>Name</td>
+                                        <td>Phone</td>
+                                        <td>Email</td>
+                                        @*<td>AddressLine</td>
+                                        <td>City</td>
+                                        <td>State</td>
+                                        <td>Zip</td>*@
+                                        <td>CreatedBy</td>
+                                        <td>UpdatedBy</td>
+                                        <td>DateCreated</td>
+                                        <td>DateLastUpdated</td>
+                                        <td>Active</td>
+                                        <td>Change</td>
+                                        <td>Delete</td>
+                                    </tr>
+                                </thead>
+
+                                <tbody>
+                                    @foreach (var user in ViewBag.User)
+                                    {
+                                        <tr>
+                                            <td>@user.Name</td>
+                                            <td>@user.Phone</td>
+                                            <td>@user.Email</td>
+                                            @*<td>@user.AddressLine</td>
+                                            <td>@user.City</td>
+                                            <td>@user.State</td>
+                                            <td>@user.Zip</td>*@
+                                            <td>@user.CreatedBy</td>
+                                            <td>@user.UpdatedBy</td>
+                                            <td>@user.DateCreated</td>
+                                            <td>@user.DateLastUpdated</td>
+                                            <td>@user.Active</td>
+                                            <td><button type="button" onclick="location.href = '/Boutique/editUser/?ID=@user.Id'"></button></td>
+                                            <td><button type="button" onclick="if ( ConfirmDelete()){location.href = '/Boutique/DeleteUser/?ID=@user.Id';};"></button></td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>   <!-- End Row -->
+</div>  <!-- end container-fluid -->
+<script>
+    function tableToCSV() {
+        var csv_data = []; // Variable to store the final csv data
+        var rows = document.getElementsByTagName('tr'); // Get each row data
+        for (var i = 0; i < rows.length; i++) {
+            var cols = rows[i].querySelectorAll('td'); // Get each column data
+            var csvrow = []; // Stores each csv row data
+            for (var j = 0; j < cols.length; j++) {
+                csvrow.push(cols[j].innerHTML); // Get the text data of each cell of a row and push it to csvrow
+            }
+            csv_data.push(csvrow.join(",")); // Combine each column value with comma
+        }
+        csv_data = csv_data.join('\n'); // combine each row data with new line character
+        downloadCSVFile(csv_data); // to download the file
+    }
+
+    function downloadCSVFile(csv_data) {
+        CSVFile = new Blob([csv_data], { type: "text/csv" }); // Create CSV file object and feed our csv_data into it
+        // Create to temporary link to initiate download process
+        var temp_link = document.createElement('a');
+        temp_link.download = "UserTable.csv"; // Download csv file
+        var url = window.URL.createObjectURL(CSVFile);
+        temp_link.href = url;
+        temp_link.style.display = "none"; // This link should not be displayed
+        document.body.appendChild(temp_link);
+        temp_link.click(); // Automatically click the link to trigger download
+        document.body.removeChild(temp_link);
+    }
+</script>
+
+
+@*<input type="hidden" value="@Accessor.HttpContext.Session.GetString("UserID")" class="form-control" name="UserID" id="UserID">*@

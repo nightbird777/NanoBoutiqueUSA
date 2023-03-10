@@ -1,0 +1,94 @@
+﻿
+
+
+<form action="/Boutique/SaveNewUser" method="post">
+
+    <span style="color:magenta" class="fw-bolder">@ViewBag.message</span>
+
+    <div class="card-body">
+        <div class="card card-border card-primary">
+            <div class="card-header border-primary bg-transparent pb-0">
+                <h3 class="card-title text-primary">Create New User Profile</h3>
+            </div>
+
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" class="form-control" placeholder="Enter your name">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="phone">Phone</label>
+                            <input type="text" name="Phone" id="Phone" class="form-control" placeholder="Enter phone number">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" name="email" id="email" class="form-control" placeholder="Enter your email address">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="addressLine">AddressLine</label>
+                            <input type="text" name="addressLine" id="addressLine" class="form-control" placeholder="Enter Address here">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="city">City</label>
+                            <input type="text" name="city" id="city" class="form-control" placeholder="Enter your City">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="state">State</label>
+                            <input type="text" name="state" id="state" class="form-control" placeholder="Enter State">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="zip">Zip</label>
+                            <input type="text" name="zip" id="zip" class="form-control" placeholder="Enter your zip code">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="text" name="password" id="password" class="form-control" placeholder="Choose your Password">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    @if (ViewBag.errorMessage != null)
+    {
+
+        foreach (var errorMessage in @ViewBag.errorMessage)
+        {
+            <p style="color:magenta">
+                @errorMessage;
+            </p>
+        }
+    }
+
+
+    <div class="form-group row">
+        <div class="col-lg-5">
+            <button type="reset" class="btn btn-primary btn-rounded waves-effect waves-light">Clear</button>
+            <button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light">Create User</button>
+        </div>
+    </div>
+
+</form>
+
+
+
