@@ -39,7 +39,7 @@ namespace NanoBoutiqueUSA.Controllers
                 HttpContext.Session.SetString("token", otp);
 
 
-                MailMessage msg = new MailMessage();
+                    MailMessage msg = new MailMessage();
                     msg.From = new MailAddress("practicetest2027@gmail.com");
                     msg.To.Add(login.Email.ToString());
                     msg.Subject = "Code to verify login info";
@@ -65,9 +65,8 @@ namespace NanoBoutiqueUSA.Controllers
         }
 
         public IActionResult verifyOTP(string otpCode)
-        {
-            string otp = HttpContext.Session.GetString("token");
-            if (otp == otpCode)
+        {            
+            if (HttpContext.Session.GetString("token") == otpCode)
             {
                 return RedirectToAction("Index", "Boutique");
             }
