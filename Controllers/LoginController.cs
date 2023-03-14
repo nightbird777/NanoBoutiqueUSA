@@ -2,6 +2,7 @@
 using NanoBoutiqueUSA.Models;
 using System.Net.Mail;
 using System.Net;
+using Microsoft.AspNetCore.Http;
 
 namespace NanoBoutiqueUSA.Controllers
 {
@@ -35,6 +36,7 @@ namespace NanoBoutiqueUSA.Controllers
 
                 Random random = new Random();
                 string otp = random.Next(0, 999999).ToString("D6");
+                HttpContext.Session.SetString("token", otp);
 
 
                 MailMessage msg = new MailMessage();
@@ -62,8 +64,9 @@ namespace NanoBoutiqueUSA.Controllers
             return View();
         }
 
-        public IActionResult verifyOTP(string otp, string otpCode)
+        public IActionResult verifyOTP(string otpCode)
         {
+            string otp = HttpContext.Session.GetString("token");
             if (otp == otpCode)
             {
                 return RedirectToAction("Index", "Boutique");

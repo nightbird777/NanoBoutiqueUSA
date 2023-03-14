@@ -6,8 +6,8 @@ namespace NanoBoutiqueUSA.Models
     {
         public Login signIn(string email, string password)
         {
-            string connectionString = ("server=KHALIFABUILD202; database=NanoBoutique; user id=raju; password=raju123");
-            //string connectionString = ("server=nyctotampa; database=NanoBoutique; user id=raju; password=raju123");
+            //string connectionString = ("server=KHALIFABUILD202; database=NanoBoutique; user id=raju; password=raju123");
+            string connectionString = ("server=nyctotampa; database=NanoBoutique; user id=raju; password=raju123");
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
 
