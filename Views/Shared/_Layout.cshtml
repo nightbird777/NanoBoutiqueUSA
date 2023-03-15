@@ -14,15 +14,6 @@
 </head>
 <body>
     <header>
-
-        @if (Accessor.HttpContext.Session.GetString("isLoggedIn") != "true")
-        {
-            <li class="nav-item">
-                <a href="/Login/Login">Login</a>
-            </li>
-        }
-        else
-        {
             <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-area="" asp-controller="Boutique" asp-action="Index">NanoBoutiqueUSA</a>
@@ -39,7 +30,6 @@
                 </div>
             </div>
         </nav>
-        }        
     </header>
     <div class="container">
         <main role="main" class="pb-3">
