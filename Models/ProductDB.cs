@@ -5,8 +5,8 @@ namespace NanoBoutiqueUSA.Models
 {
     public class ProductDB
     {
-        private string connectionString = ("server=KHALIFABUILD202; database=NanoBoutique; user id=raju; password=raju123");
-        //private string connectionString = ("server=nyctotampa; database=NanoBoutique; user id=raju; password=raju123");
+        //private string connectionString = ("server=KHALIFABUILD202; database=NanoBoutique; user id=raju; password=raju123");
+        private string connectionString = ("server=nyctotampa; database=NanoBoutique; user id=raju; password=raju123");
         public List<Product> getAllProducts()
         {
             List<Product> products = new List<Product>();
