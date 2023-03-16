@@ -63,7 +63,7 @@ app.UseAuthorization();
 
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Product}/{action=allProduct}/{id?}");
+    pattern: "{controller=Product}/{action=CustomerView}/{id?}");
 
 app.UseSession();
 

@@ -1,0 +1,70 @@
+﻿@{
+    Layout = "_MainPage";
+}
+
+
+<form action="/Product/editProductSave" method="post" enctype="multipart/form-data">
+
+    <span style="color:magenta" class="fw-bolder">@ViewBag.message</span>
+
+    <div class="card-body">
+        <div class="card card-border card-primary">
+            <div class="card-header border-primary bg-transparent pb-0">
+                <h3 class="card-title text-primary">Update Product</h3>
+            </div>
+            <div class="card-body">
+                <div class="row">
+
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input type="text" name="name" id="name" class="form-control" value="@ViewBag.Product.Name">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="description">Description</label>
+                            <input type="text" name="description" id="description" class="form-control" value="@ViewBag.Product.Description">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="price">Price</label>
+                            <input type="text" name="price" id="price" class="form-control" value="@ViewBag.Product.Price">
+                        </div>
+                    </div>
+
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <label for="img">Image</label>
+                            <input type="file" name="img" id="img" class="form-control" value="@ViewBag.Product.Image">
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
+                            <input type="hidden" name="Id" id="Id" class="form-control" value="@ViewBag.Product.Id">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    @if (ViewBag.errorMessage != null)
+    {
+        foreach (var errorMessage in @ViewBag.errorMessage)
+        {
+            <p style="color:magenta">
+                @errorMessage;
+            </p>
+        }
+    }
+
+    <div class="form-group row">
+        <div class="col-lg-5">
+            <button type="reset" class="btn btn-primary btn-rounded waves-effect waves-light">Clear</button>
+            <button type="submit" class="btn btn-primary btn-rounded waves-effect waves-light">Update Product</button>
+        </div>
+    </div>
+
+</form>

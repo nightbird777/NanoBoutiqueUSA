@@ -1,5 +1,5 @@
 ﻿@{
-    Layout = "_Layout";
+    Layout = "_MainPage";
 }
 
 
@@ -11,9 +11,16 @@
         <div class="col-12">
             <div class="page-title-box">
                 <div class="page-title-right">
-                    <div class="breadcrumb p-0 m-0">
+                    <div class="breadcrumb p-0 m-0">                        
                         <div class="button-list">
-                            <button type="button" onclick="location.href = '/Product/CreateProduct'" class="btn btn-primary btn-rounded waves-effect waves-light">Create User</button>
+                            <form action="/Product/searchProduct" method="post">
+                                <table>
+                                    <tr>
+                                        <td class="col-md-2"><input type="text" name="name" id="name" placeholder="Search Product" /></td>
+                                        <td> <input type="submit" value="Search" class="btn btn-success" /></td>
+                                    </tr>
+                                </table>
+                            </form>
                         </div>
                     </div>
                 </div>
@@ -21,7 +28,7 @@
             </div>
         </div>
     </div>
-    
+
     <!-- end page title -->
 
     <div class="row">
@@ -40,13 +47,6 @@
                                         <td>Description</td>
                                         <td>Price</td>
                                         <td>Photo</td>
-                                        <td>CreatedBy</td>
-                                        <td>UpdatedBy</td>
-                                        <td>DateCreated</td>
-                                        <td>DateLastUpdated</td>
-                                        <td>Active</td>
-                                        <td>Change</td>
-                                        <td>Delete</td>
                                     </tr>
                                 </thead>
 
@@ -58,13 +58,6 @@
                                             <td>@product.Description</td>
                                             <td>@product.Price</td>
                                             <td><a href="~/Images/@product.Image" target="_blank"><img src="~/Images/@product.Image" height="50px" /></a></td>
-                                            <td>@product.CreatedBy</td>
-                                            <td>@product.UpdatedBy</td>
-                                            <td>@product.DateCreated</td>
-                                            <td>@product.DateLastUpdated</td>
-                                            <td>@product.Active</td>
-                                            <td><button type="button" class="btn btn-primary btn-rounded waves-effect waves-light" onclick="location.href = '/Product/editProduct/?ID=@product.Id'">Edit</button></td>
-                                            <td><button type="button" class="btn btn-danger btn-rounded waves-effect waves-light" onclick="if ( ConfirmDelete()){location.href = '/Product/DeleteProduct/?ID=@product.Id';};">Remove</button></td>
                                         </tr>
                                     }
                                 </tbody>

@@ -1,0 +1,27 @@
+﻿@{
+    Layout = "_MainPage";
+}
+
+
+
+<table class="table table-bordered table-striped table-hover">
+
+    <thead class="bg-success">
+        <tr>
+            <td>Name</td>
+            <td>Description</td>
+            <td>Price</td>
+            <td>Photo</td>
+        </tr>
+    </thead>
+
+    @foreach (Product product in ViewBag.product)
+    {
+        <tr>
+            <td>@product.Name</td>
+            <td>@product.Description</td>
+            <td>@product.Price</td>
+            <td>@product.Image</td>
+        </tr>
+    }
+</table>
