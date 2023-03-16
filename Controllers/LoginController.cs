@@ -35,7 +35,7 @@ namespace NanoBoutiqueUSA.Controllers
                 HttpContext.Session.SetString("Password", login.Password);
 
                 Random random = new Random();
-                string otp = random.Next(0, 999999).ToString("D6");
+                string otp = random.Next(1, 999999).ToString("D6");
                 HttpContext.Session.SetString("token", otp);
 
 
