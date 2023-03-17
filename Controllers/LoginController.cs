@@ -40,7 +40,7 @@ namespace NanoBoutiqueUSA.Controllers
 
 
                     MailMessage msg = new MailMessage();
-                    msg.From = new MailAddress("practicetest2027@gmail.com");
+                    msg.From = new MailAddress("freetubetime0@gmail.com");
                     msg.To.Add(login.Email.ToString());
                     msg.Subject = "Code to verify login info";
                     msg.Body = otp.ToString();
@@ -48,8 +48,8 @@ namespace NanoBoutiqueUSA.Controllers
                     SmtpClient smtpClient = new SmtpClient();
                     smtpClient.Host = "smtp.gmail.com";
                     NetworkCredential ntcd = new NetworkCredential();
-                    ntcd.UserName = "practicetest2027@gmail.com";
-                    ntcd.Password = "uqieeglrmbgbhkta";
+                    ntcd.UserName = "freetubetime0@gmail.com";
+                    ntcd.Password = "kndsvpzmnwsimoeb";
                     smtpClient.Credentials = ntcd;
                     smtpClient.EnableSsl = true;
                     smtpClient.Port = 587;

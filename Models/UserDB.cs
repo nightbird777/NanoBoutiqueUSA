@@ -5,8 +5,8 @@ namespace NanoBoutiqueUSA.Models
 {
     public class UserDB
     {
-        //private string connectionString = ("server=KHALIFABUILD202; database=NanoBoutique; user id=raju; password=raju123");
-        private string connectionString = ("server=nyctotampa; database=NanoBoutique; user id=raju; password=raju123");
+        private string connectionString = ("server=KHALIFABUILD202; database=NanoBoutique; user id=raju; password=raju123");
+        //private string connectionString = ("server=nyctotampa; database=NanoBoutique; user id=raju; password=raju123");
         public List<User> getAllUsers()
         {
             List<User> users = new List<User>();
@@ -33,7 +33,8 @@ namespace NanoBoutiqueUSA.Models
         {
             string sql = "update [User] set Name = '" + user.Name + "', Phone = '" + user.Phone + "', Email = '" + user.Email + "', " +
                 "AddressLine = '" + user.AddressLine + "', City = '" + user.City + "', State = '" + user.State + "', " +
-                "Zip = '" + user.Zip + "', Password = '" + user.Password + "', UpdatedBy = '" + user.UpdatedBy + "', DateLastUpdated = GETDATE(), Active = '" + user.Active + "' where Id = " + user.Id;
+                "Zip = '" + user.Zip + "', Password = '" + user.Password + "', UpdatedBy = '" + user.UpdatedBy + "', " +
+                "DateLastUpdated = GETDATE(), Active = '" + user.Active + "' where Id = " + user.Id;
             using (SqlConnection conn = new SqlConnection(connectionString))
             {
                 conn.Execute(sql, user);
