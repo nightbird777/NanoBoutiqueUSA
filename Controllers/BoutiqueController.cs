@@ -30,6 +30,7 @@ namespace NanoBoutiqueUSA.Controllers
         public IActionResult editUserSave(User user)
         {
             UserDB userDB = new UserDB();
+            //user.UpdatedBy = HttpContext.Session.GetString("UserId".ToString();
             userDB.saveEditUser(user);
             List<User> users = userDB.getAllUsers();
             return RedirectToAction("getAll");
@@ -51,6 +52,7 @@ namespace NanoBoutiqueUSA.Controllers
         public IActionResult SaveNewUser(User user)
         {
             UserDB userDB = new UserDB();
+            //user.CreatedBy = HttpContext.Session.GetString("UserId".ToString();
             userDB.CreateNewUser(user);
             List<User> users = userDB.getAllUsers();
             return RedirectToAction("getAll");

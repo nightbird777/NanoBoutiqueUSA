@@ -66,6 +66,15 @@
                     </div>
                     <div class="col-xl-5">
                         <div class="form-group">
+                            <label for="status">Status:</label><br />
+                            <label for=" active">Active</label>
+                            <input type="radio" name="active" id="active" value="(@ViewBag.user.Active == 1)" /> &ensp;
+                            <label for=" active">Inactive</label>
+                            <input type="radio" name="active" id="active" value="(@ViewBag.user.Active == 0)"/>
+                        </div>
+                    </div>
+                    <div class="col-xl-5">
+                        <div class="form-group">
                             <input type="hidden" name="Id" id="Id" class="form-control" value="@ViewBag.user.Id">
                         </div>
                     </div>
