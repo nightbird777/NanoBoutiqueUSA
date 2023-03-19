@@ -20,7 +20,7 @@ namespace NanoBoutiqueUSA.Models
             Login login = new Login();
             while (reader.Read())
             {
-                login.UserId = Convert.ToInt32(reader["UserId"]);
+                login.Id = Convert.ToInt32(reader["Id"]);
                 login.Email = reader["Email"].ToString();
                 login.Password = reader["Password"].ToString();
             }

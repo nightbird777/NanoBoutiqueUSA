@@ -20,7 +20,7 @@ namespace NanoBoutiqueUSA.Controllers
             LoginDB loginDB = new LoginDB();
             Login login = loginDB.signIn(email, password);
 
-            if (login.UserId == 0)
+            if (login.Id == 0)
             {
                 ViewBag.ErrorMessage = "Username and password did not match any user";
                 HttpContext.Session.SetString("isLoggedIn", "False");
@@ -30,7 +30,7 @@ namespace NanoBoutiqueUSA.Controllers
             {
                 ViewBag.ErrorMessage = "";
                 HttpContext.Session.SetString("isLoggedIn", "True");
-                HttpContext.Session.SetString("UserId", login.UserId.ToString());
+                HttpContext.Session.SetString("Id", login.Id.ToString());
                 HttpContext.Session.SetString("Email", login.Email);
                 HttpContext.Session.SetString("Password", login.Password);
 
@@ -50,6 +50,8 @@ namespace NanoBoutiqueUSA.Controllers
                     NetworkCredential ntcd = new NetworkCredential();
                     ntcd.UserName = "freetubetime0@gmail.com";
                     ntcd.Password = "kndsvpzmnwsimoeb";
+                    //ntcd.UserName = "practicetest2027@gmail.com";
+                    //ntcd.Password = "uqieeglrmbgbhkta";
                     smtpClient.Credentials = ntcd;
                     smtpClient.EnableSsl = true;
                     smtpClient.Port = 587;
