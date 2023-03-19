@@ -39,7 +39,7 @@ namespace NanoBoutiqueUSA.Controllers
                 user.Active = false;
             }
             UserDB userDB = new UserDB();
-            user.UpdatedBy = Convert.ToInt32(HttpContext.Session.GetString("UserId"));
+            user.UpdatedBy = Convert.ToInt32(HttpContext.Session.GetString("Id"));
             userDB.saveEditUser(user);
             List<User> users = userDB.getAllUsers();
             return RedirectToAction("getAll");
@@ -61,7 +61,7 @@ namespace NanoBoutiqueUSA.Controllers
         public IActionResult SaveNewUser(User user)
         {
             UserDB userDB = new UserDB();
-            user.UpdatedBy = Convert.ToInt32(HttpContext.Session.GetString("UserId"));
+            user.UpdatedBy = Convert.ToInt32(HttpContext.Session.GetString("Id"));
             userDB.CreateNewUser(user);
             List<User> users = userDB.getAllUsers();
             return RedirectToAction("getAll");

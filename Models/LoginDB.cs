@@ -11,7 +11,7 @@ namespace NanoBoutiqueUSA.Models
             SqlConnection conn = new SqlConnection(connectionString);
             conn.Open();
 
-            string sql = "select * from loginID where email = '" + email
+            string sql = "select * from login where email = '" + email
                             + "' and password = '" + password + "'";
 
             SqlCommand cmd = new SqlCommand(sql, conn);
