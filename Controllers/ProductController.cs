@@ -31,7 +31,7 @@ namespace NanoBoutiqueUSA.Controllers
             ProductDB productDB = new ProductDB();
 
             var fileName = Path.GetFileName(img.FileName);
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/nano", fileName);
             var stream = new FileStream(filePath, FileMode.Create);
             img.CopyToAsync(stream);
             product.Image = fileName;
@@ -60,7 +60,7 @@ namespace NanoBoutiqueUSA.Controllers
             ProductDB productDB = new ProductDB();
 
             var fileName = Path.GetFileName(img.FileName);
-            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images", fileName);
+            string filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/nano", fileName);
             var stream = new FileStream(filePath, FileMode.Create);
             img.CopyToAsync(stream);
             product.Image = fileName;
